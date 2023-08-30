@@ -1,3 +1,16 @@
+<?php
+session_start();
+if (isset($_SESSION['role'])) {
+    if ($_SESSION['role'] == "khach") {
+        $role = "khach";
+    } else if ($_SESSION['role'] == "nhanvien") {
+        $role = "nhanvien";
+    } else {
+        $role = "admin";
+    }
+}
+?>
+
 <div class="menu">
     <div class="menu_head">
         <i class="menu_head_icon fa-solid fa-xmark"></i>
@@ -8,21 +21,89 @@
     </div>
 
     <div class="menu_list">
-        <a class="menu_item" href="../../quan_ly_khach_san/index.php">
-            <i class="icon1  fa-solid fa-house"></i>
-            <p>Trang chủ</p>
-        </a>
-        <a class="menu_item" href="../../quan_ly_khach_san/index.php?page=room">
-            <i class="icon2  fa-solid fa-bed"></i>
-            <p>Phòng</p>
-        </a>
-        <a class="menu_item" href="../../quan_ly_khach_san/index.php?page=order_room">
-            <i class="icon3  fa-solid fa-bookmark"></i>
-            <p>Đặt phòng</p>
-        </a>
-        <a class="menu_item" href="../../quan_ly_khach_san/index.php?page=hoa_don">
+        <?php
+        if ($role == "khach") {
+        ?>
+            <a class="menu_item" href="../../quan_ly_khach_san/index.php">
+                <i class="icon1  fa-solid fa-house"></i>
+                <p>Trang chủ</p>
+            </a>
+            <a class="menu_item" href="">
+                <i class="icon2  fa-solid fa-bed"></i>
+                <p>Thông tin phòng</p>
+            </a>
+            <a class="menu_item" href="">
+                <i class="icon3  fa-solid fa-bookmark"></i>
+                <p>Đăng kí đặt phòng</p>
+            </a>
+            <a class="menu_item" href="">
+                <i class="icon4  fa-solid fa-bookmark"></i>
+                <p>Các dịch vụ</p>
+            </a>
+            <a class="menu_item" href="">
+                <i class="icon4  fa-solid fa-bookmark"></i>
+                <p>Trả phòng</p>
+            </a>
+            <a class="menu_item" href="">
+                <i class="icon4  fa-solid fa-bookmark"></i>
+                <p>Hợp đồng thuê phòng</p>
+            </a>
+
+        <?php } else if ($role == "nhanvien") {
+
+        ?>
+            <a class="menu_item" href="../../quan_ly_khach_san/index.php">
+                <i class="icon1  fa-solid fa-house"></i>
+                <p>Trang chủ</p>
+            </a>
+            <a class="menu_item" href="">
+                <i class="icon2  fa-solid fa-bed"></i>
+                <p>Quản lý phòng</p>
+            </a>
+            <a class="menu_item" href="../../quan_ly_khach_san/index.php?page=hoa_don">
+                <i class="icon4  fa-solid fa-bookmark"></i>
+                <p>Quản lý dịch vụ</p>
+            </a>
+            <a class="menu_item" href="">
+                <i class="icon4  fa-solid fa-bookmark"></i>
+                <p>Quản lý khách hàng</p>
+            </a>
+            <a class="menu_item" href="">
+                <i class="icon4  fa-solid fa-bookmark"></i>
+                <p>Thống kê</p>
+            </a>
+        <?php } else {
+        ?>
+            <a class="menu_item" href="../../quan_ly_khach_san/index.php">
+                <i class="icon1  fa-solid fa-house"></i>
+                <p>Trang chủ</p>
+            </a>
+            <a class="menu_item" href="../../quan_ly_khach_san/index.php?page=room">
+                <i class="icon2  fa-solid fa-bed"></i>
+                <p>Phòng</p>
+            </a>
+            <a class="menu_item" href="../../quan_ly_khach_san/index.php?page=order_room">
+                <i class="icon3  fa-solid fa-bookmark"></i>
+                <p>Đặt phòng</p>
+            </a>
+            <a class="menu_item" href="../../quan_ly_khach_san/index.php?page=hoa_don">
+                <i class="icon4  fa-solid fa-bookmark"></i>
+                <p>Hóa đơn</p>
+            </a>
+            <a class="menu_item" href="../../quan_ly_khach_san/index.php?page=hoa_don">
+                <i class="icon4  fa-solid fa-bookmark"></i>
+                <p>Hóa đơn</p>
+            </a>
+            <a class="menu_item" href="../../quan_ly_khach_san/index.php?page=hoa_don">
+                <i class="icon4  fa-solid fa-bookmark"></i>
+                <p>Hóa đơn</p>
+            </a>
+        <?php
+        } ?>
+
+        <a class="menu_item logout" href="../../quan_ly_khach_san/index.php?page=hoa_don">
             <i class="icon4  fa-solid fa-bookmark"></i>
-            <p>Hóa đơn</p>
+            <p>Đăng xuất</p>
         </a>
     </div>
 </div>

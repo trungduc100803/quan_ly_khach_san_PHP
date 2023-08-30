@@ -11,7 +11,7 @@
 
 <body>
     <div class="login">
-        <form action="../quan_ly_khach_san/controllers/loginController.php" method="post" class="form_login">
+        <form autocomplete="off" action="../quan_ly_khach_san/controllers/loginController.php" method="post" class="form_login">
             <p>Đăng nhập</p>
             <div class="form_item">
                 <label for="">Nhập tên đăng nhập</label>
